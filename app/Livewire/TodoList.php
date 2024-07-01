@@ -23,6 +23,11 @@ class TodoList extends Component
 
         session()->flash('message', " created successfully");
     }
+
+    public function delete(Todo $todo)
+    {
+        $todo->delete();
+    }
     public function render()
     {
         $todos = Todo::latest()->where('name', 'like', '%' . $this->search . '%')->paginate(5);
