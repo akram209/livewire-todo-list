@@ -23,7 +23,10 @@ class TodoList extends Component
     public function create()
     {
         $this->validateOnly('name');
-        Todo::create(['name' => $this->name]);
+        Todo::create([
+            'name' => $this->name,
+            'user_id' => auth()->user()->id
+        ]);
         $this->reset('name');
 
         session()->flash('message', " created successfully");
