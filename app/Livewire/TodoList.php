@@ -67,7 +67,7 @@ class TodoList extends Component
     }
     public function render()
     {
-        $todos = Todo::latest()->where('name', 'like', '%' . $this->search . '%')->where('completed', false)->paginate(5);
+        $todos = Todo::latest()->where('name', 'like', '%' . $this->search . '%')->where('completed', false)->where('user_id', auth()->user()->id)->paginate(5);
 
         return view('livewire.todo-list', [
             "todos" => $todos
