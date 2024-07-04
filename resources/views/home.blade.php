@@ -6,12 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App </title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
     @livewireStyles
 </head>
 
 <body>
 
-    <div id="head" class="flex border-blue-800 border-t-2">
+    <div id="head" class="flex border-blue-800 border-t-2 ">
+        <button style="position: relative; left:60%; top: 5px; ">
+
+            <i class="fa-solid fa-calendar-day" style="font-size: 25px;color: rgb(1, 1, 74)" title="today"></i>
+        </button>
+        <button style="position: relative; left: 50%; top: 5px; ">
+            <i class="fa-solid fa-list-check" style="font-size: 25px;color: rgb(1, 1, 74)" title="completed"></i>
+        </button>
+        <button style="position: relative; left: 40%; top: 5px; ">
+            <i class="fa-solid fa-circle-exclamation" style="font-size: 25px;color: rgb(1, 1, 74)" title="priority"></i>
+        </button>
         <div class="w-full">
             <header class="flex bg-white justify-between h-20 border-b border-b-gray-200 items-center px-6">
                 <div id="left-header" class="">
@@ -52,11 +65,15 @@
                         </x-dropdown>
                     </div>
 
+
                 </div>
+
             </header>
+
         </div>
+
     </div>
-    <div id="content" class="mx-auto" style="max-width:500px;">
+    <div id="content" class="mx-auto" style="max-width:500px; ">
         @livewire('todo-list')
     </div>
     @livewireScripts

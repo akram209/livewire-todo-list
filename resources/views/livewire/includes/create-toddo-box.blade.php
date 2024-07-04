@@ -1,6 +1,7 @@
 <div class="container content py-6 mx-auto">
     <div class="mx-auto">
-        <div id="create-form" class="hover:shadow p-6 bg-white border-blue-500 border-t-2">
+        <div id="create-form" class="hover:shadow p-6 bg-white border-blue-500 border-t-2"
+            style="background: linear-gradient(to right, rgb(160, 160, 180), white); ">
             <div class="flex ">
                 <h2 class="font-semibold text-lg text-gray-800 mb-5">Create New Todo</h2>
             </div>
