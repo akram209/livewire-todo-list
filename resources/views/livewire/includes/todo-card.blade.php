@@ -39,6 +39,8 @@
             </button>
         </div>
     </div>
+    <span class="text-xs text-gray-500"> Date: {{ $todo->date }} </span>
+    <br>
     <span class="text-xs text-gray-500"> {{ $todo->created_at->diffForHumans() }} </span>
     <div class="mt-3 text-xs text-gray-700">
         @if ($todo->id == $editTodoId)

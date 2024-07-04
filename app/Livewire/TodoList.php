@@ -15,16 +15,25 @@ class TodoList extends Component
     #[Rule('required|min:3|max:50')]
     public $name;
 
+    #[Rule('date|required|after_or_equal:today')]
+    public $date;
+
     public $search;
+
     public $editTodoId;
+
     #[Rule('required|min:3|max:50')]
     public $newName;
-
+    public $today = "false";
+    public $upcoming = "false";
+    public $overdue = "false";
     public function create()
     {
         $this->validateOnly('name');
+        $this->validateOnly('date');
         Todo::create([
             'name' => $this->name,
+            'date' => $this->date,
             'user_id' => auth()->user()->id
         ]);
         $this->reset('name');
@@ -65,9 +74,36 @@ class TodoList extends Component
         }
         return;
     }
+    public function today()
+    {
+        $this->today = "true";
+        $this->upcoming = "false";
+        $this->overdue = "false";
+    }
+    public function upcoming()
+    {
+        $this->today = "false";
+        $this->upcoming = "true";
+        $this->overdue = "false";
+    }
+    public function overdue()
+    {
+        $this->today = "false";
+        $this->upcoming = "false";
+        $this->overdue = "true";
+    }
     public function render()
     {
-        $todos = Todo::latest()->where('name', 'like', '%' . $this->search . '%')->where('completed', false)->where('user_id', auth()->user()->id)->paginate(5);
+
+        if ($this->today == "true") {
+            $todos = Todo::latest()->where('name', 'like', '%' . $this->search . '%')->where('completed', false)->where('user_id', auth()->user()->id)->whereDate('date', '==', now())->paginate(5);
+        } elseif ($this->upcoming == "true") {
+            $todos = Todo::latest()->where('name', 'like', '%' . $this->search . '%')->where('completed', false)->where('user_id', auth()->user()->id)->whereDate('date', '<', now())->paginate(5);
+        } elseif ($this->overdue == "true") {
+            $todos = Todo::latest()->where('name', 'like', '%' . $this->search . '%')->where('completed', false)->where('user_id', auth()->user()->id)->whereDate('date', '>', now())->paginate(5);
+        } else {
+            $todos = Todo::latest()->where('name', 'like', '%' . $this->search . '%')->where('completed', false)->where('user_id', auth()->user()->id)->paginate(5);
+        }
 
         return view('livewire.todo-list', [
             "todos" => $todos
