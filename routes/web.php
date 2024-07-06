@@ -10,7 +10,7 @@ Route::view('/', 'welcome');
 
 
 Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', 'is_admin'])
     ->name('dashboard');
 
 Route::view('profile', 'profile')

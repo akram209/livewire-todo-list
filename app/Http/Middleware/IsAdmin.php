@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class NotYourPage
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,8 @@ class NotYourPage
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user()->id != $request->page->user_id && $request->user()->is_admin == 0) {
-
-            return redirect()->route('home', $request->user()->id);
-        }
-        return $next($request);
+        if ($request->user()->is_admin == 0) {
+            return redirect()->route('home', auth()->user()->id);
+        } else return $next($request);
     }
 }
