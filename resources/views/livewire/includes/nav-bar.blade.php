@@ -1,18 +1,46 @@
-<div id="head" class="flex border-blue-800 border-t-2 ">
-    <button style="position: relative; left:60%; top: 5px; " wire:click="today">
-
-        <i class="fa-solid fa-calendar-day" style="font-size: 25px;color: rgb(1, 1, 74)" title="today"></i>
+<style>
+    #head i:hover {
+        color: royalblue;
+    }
+</style>
+<div id="head" class="flex border-blue-800 border-t-2">
+    <button style="position: relative; left:60%; top: 5px;" wire:click="today">
+        <i class="fa-solid fa-calendar-day" style="font-size: 25px; color: rgb(1, 1, 74);" title="today"
+            onmouseover="
+        this.style.color = 'rgb(0, 0, 179)';
+        this.style.fontSize = '28px'"
+            onmouseout="
+        this.style.color = 'rgb(1, 1, 74)';
+        this.style.fontSize = '25px'"></i>
     </button>
-    <button style="position: relative; left: 50%; top: 5px; " wire:click="upcoming">
-        <i class="fa-regular fa-calendar-days" style="font-size: 25px;color: rgb(1, 1, 74)" title="upcoming"></i>
+    <button style="position: relative; left: 50%; top: 5px;" wire:click="upcoming">
+        <i class="fa-regular fa-calendar-days" style="font-size: 25px; color: rgb(1, 1, 74);" title="upcoming"
+            onmouseover="
+        this.style.color = 'rgb(0, 0, 179)';
+        this.style.fontSize = '28px'"
+            onmouseout="
+        this.style.color = 'rgb(1, 1, 74)';
+        this.style.fontSize = '25px'"></i>
     </button>
-    <button style="position: relative; left: 40%; top: 5px; " wire:click="overdue">
-        <i class="fa-solid fa-arrow-down-short-wide" style="font-size: 25px;color: rgb(1, 1, 74)" title="overdue"></i>
+    <button style="position: relative; left: 40%; top: 5px;" wire:click="overdue">
+        <i class="fa-solid fa-arrow-down-short-wide" style="font-size: 25px; color: rgb(1, 1, 74);" title="overdue"
+            onmouseover="
+        this.style.color = 'rgb(0, 0, 179)';
+        this.style.fontSize = '28px'"
+            onmouseout="
+        this.style.color = 'rgb(1, 1, 74)';
+        this.style.fontSize = '25px'"></i>
     </button>
-
-    <button style="position: relative; left: 30%; top: 5px; "
+    <button style="position: relative; left: 30%; top: 5px;"
         onclick="window.location='{{ route('completed', ['user' => auth()->user()->id]) }}'">
-        <i class="fa-solid fa-list-check" style="font-size: 25px;color: rgb(1, 1, 74)" title="completed"></i>
+        <i class="fa-solid fa-list-check" style="font-size: 25px; color: rgb(1, 1, 74);" title="completed"
+            onmouseover="
+            this.style.color = 'rgb(0, 0, 179)';
+            this.style.fontSize = '28px'"
+            onmouseout="
+            this.style.color = 'rgb(1, 1, 74)';
+            this.style.fontSize = '25px'">
+        </i>
     </button>
 
 
