@@ -7,6 +7,7 @@ use Illuminate\Validation\Rules;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 use App\Models\Page;
+use App\Events\RegisterEvent;
 
 new #[Layout('layouts.guest')] class extends Component {
     public string $name = '';
@@ -30,6 +31,7 @@ new #[Layout('layouts.guest')] class extends Component {
         event(new Registered(($user = \App\Models\User::create($validated))));
 
         Auth::login($user);
+        event(new RegisterEvent($user));
         App\Models\Page::create(['user_id' => $user->id]);
 
         $this->redirect(route('home', $user->id), navigate: true);
