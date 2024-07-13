@@ -16,7 +16,7 @@
 
 
 
-    @livewire('todo-list')
+    @livewire('todo-list', ['userId' => $userId])
     @livewireScripts
 </body>
 

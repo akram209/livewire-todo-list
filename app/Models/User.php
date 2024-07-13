@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin'
     ];
 
     /**
@@ -50,9 +51,5 @@ class User extends Authenticatable
     public function todos(): HasMany
     {
         return $this->hasMany(Todo::class);
-    }
-    public function pages(): HasOne
-    {
-        return $this->hasOne(Page::class);
     }
 }

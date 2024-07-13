@@ -80,6 +80,12 @@
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </button>
+                            @can('dashboard', auth()->user())
+                                <x-dropdown-link href="{{ route('dashboard') }}">
+                                    {{ __('Dashboard') }}
+                                </x-dropdown-link>
+                            @endcan
+
                         </x-slot>
                     </x-dropdown>
                 </div>

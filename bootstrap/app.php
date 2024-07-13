@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\CreateUserEvent;
 use App\Http\Middleware\NotYourPage;
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Foundation\Application;
@@ -12,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
     )
+   
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'is_yourPage' => NotYourPage::class,

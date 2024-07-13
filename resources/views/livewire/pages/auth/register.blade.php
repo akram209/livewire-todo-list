@@ -31,10 +31,9 @@ new #[Layout('layouts.guest')] class extends Component {
         event(new Registered(($user = \App\Models\User::create($validated))));
 
         Auth::login($user);
-        event(new RegisterEvent($user));
-        App\Models\Page::create(['user_id' => $user->id]);
 
-        $this->redirect(route('home', $user->id), navigate: true);
+        $this->redirect(route('home', $user->id));
+        event(new RegisterEvent($user));
     }
 }; ?>
 

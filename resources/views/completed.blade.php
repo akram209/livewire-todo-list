@@ -16,7 +16,7 @@
     <div>
 
         <h1 class="text-3xl font-bold mb-5 mt-10" style="text-align:center;color:rgb(1, 1, 74)">Completed Todos</h1>
-        <a href="{{ route('home', ['page' => auth()->user()->id]) }}" style="position: absolute ;right: 10%; top: 5%;"
+        <a href="{{ route('home', ['user' => auth()->user()->id]) }}" style="position: absolute ;right: 10%; top: 5%;"
             title="home">
             <i class="fa-solid fa-house" style="font-size: 25px;color: rgb(1, 1, 74); "></i>
         </a>

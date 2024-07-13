@@ -12,6 +12,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class TodoList extends Component
 {
     use WithPagination;
+    public $userId;
     #[Rule('required|min:3|max:50')]
     public $name;
 
@@ -92,28 +93,28 @@ class TodoList extends Component
             $todos = Todo::latest()
                 ->where('name', 'like', '%' . $this->search . '%')
                 ->where('completed', false)
-                ->where('user_id', auth()->user()->id)
+                ->where('user_id', $this->userId)
                 ->whereDate('date', now())
                 ->paginate(5);
         } elseif ($this->filter == "upcoming") {
             $todos = Todo::latest()
                 ->where('name', 'like', '%' . $this->search . '%')
                 ->where('completed', false)
-                ->where('user_id', auth()->user()->id)
+                ->where('user_id', $this->userId)
                 ->whereDate('date', '>', now())
                 ->paginate(5);
         } elseif ($this->filter == "overdue") {
             $todos = Todo::latest()
                 ->where('name', 'like', '%' . $this->search . '%')
                 ->where('completed', false)
-                ->where('user_id', auth()->user()->id)
+                ->where('user_id', $this->userId)
                 ->whereDate('date', '<', now())
                 ->paginate(5);
         } else {
             $todos = Todo::latest()
                 ->where('name', 'like', '%' . $this->search . '%')
                 ->where('completed', false)
-                ->where('user_id', auth()->user()->id)
+                ->where('user_id', $this->userId)
                 ->paginate(5);
         }
 

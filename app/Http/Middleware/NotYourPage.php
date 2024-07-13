@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Page;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,9 +16,12 @@ class NotYourPage
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user()->id != $request->page->user_id && $request->user()->is_admin == 0) {
 
-            return redirect()->route('home', $request->user()->id);
+
+
+        if ($request->user()->id != $request->user->id && $request->user()->is_admin == 0) {
+
+            return redirect()->route('home', auth()->user()->id);
         }
         return $next($request);
     }

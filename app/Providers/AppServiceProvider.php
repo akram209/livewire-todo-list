@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Events\RegisterEvent;
 use App\Listeners\EmailListener;
-use Illuminate\Console\Scheduling\Event;
+use App\Models\User;
+use App\Policies\DashboardPolicy;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,11 +21,14 @@ class AppServiceProvider extends ServiceProvider
 
         RegisterEvent::class => [EmailListener::class]
     ];
-
+    protected $polycies = [
+        User::class => DashboardPolicy::class
+    ];
     /**
      * Bootstrap any application services.
      */
     public function boot(): void
     {
+        Gate::define('dashboard', [DashboardPolicy::class, 'dashBoard']);
     }
 }
