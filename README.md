@@ -13,8 +13,8 @@ Todo App is a simple yet powerful task management application built with Laravel
 ### Features
 
 -   **Starter-Kits(laravel Breeze):** provides a simple register UI and authenticate the users .
-    **Use Middeleware (is_admin,is_yourBage):** to authorize the user and use policy gate to authorize contolling the Dashboard.
+-   **Use Middeleware (is_admin,is_yourBage):** to authorize the user and use policy gate to authorize contolling the Dashboard .
 -   **Tasks Management:** Create, update, delete, and view tasks and control it with interactive UI .
 -   **Livewire Integration:** Real-time updates and interactions.
-    **Simple-Dashboard:** to controll the users and and use event to make comunication with livewire components .
+-    **Simple-Dashboard:** to controll the users and and use event to make comunication with livewire components .
 -   **Bootstrap Icons Tailwind CSS:** Beautiful and consistent icons.
