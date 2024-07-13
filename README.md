@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://d1hdtc0tbqeghx.cloudfront.net/wp-content/uploads/2020/07/27141257/laravel-livewire.jpg" width="400" alt="Laravel Logo"></a></p>
 <p align="center">
     <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
     <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
@@ -12,15 +12,9 @@ Todo App is a simple yet powerful task management application built with Laravel
 
 ### Features
 
--   **Task Management:** Create, update, delete, and view tasks.
+-   **Starter-Kits(laravel Breeze):** provides a simple register UI and authenticate the users .
+    **Use Middeleware (is_admin,is_yourBage):** to authorize the user and use policy gate to authorize contolling the Dashboard
+-   **Tasks Management:** Create, update, delete, and view tasks and control it with interactive UI .
 -   **Livewire Integration:** Real-time updates and interactions.
--   **Tailwind CSS:** Modern and responsive design.
--   **Bootstrap Icons:** Beautiful and consistent icons.
-
-## Getting Started
-
-### Prerequisites
-
--   PHP 7.3 or higher
--   Composer
--   Node.js and npm
+    **Simple-Dashboard:** to controll the users and and use event to make comunication with livewire components .
+-   **Bootstrap Icons Tailwind CSS:** Beautiful and consistent icons.
